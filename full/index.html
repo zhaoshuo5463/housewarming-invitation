@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>乔迁之喜 - Housewarming Party - SHUO 邀请你</title>
+
+<!-- Open Graph / WeChat preview -->
+<meta property="og:title" content="乔迁之喜 - Housewarming Party - SHUO 邀请你" />
+<meta property="og:description" content="诚邀你来新家做客！吃火锅打牌逛公园，5月16日上午11点见" />
+<meta property="og:image" content="https://flowmobilure.site/housewarming_cover_wechat.jpg" />
+<meta property="og:image:width" content="640" />
+<meta property="og:image:height" content="795" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://flowmobilure.site/" />
+<!-- WeChat specific -->
+<meta name="description" content="诚邀你来新家做客！吃火锅打牌逛公园，5月16日上午11点见" />
+
+<style>
+  :root {
+    /* Green palette (first version - matched) */
+    --forest: #1E4D2E;
+    --leaf: #4A7C5A;
+    --leaf-light: #6A9C7A;
+    --sage: #8CB89A;
+    --pale-green: #D4E8D9;
+    --cream: #F0EDE3;
+    --warm-white: #FAF7F2;
+    --charcoal: #2A2A2A;
+    --dark-charcoal: #1E1E1E;
+    --warm-gray: #6B6258;
+    --light-beige: #E8E0D0;
+    --gold: #B8975A;
+    --gold-light: #D4B86A;
+    --gold-bright: #E8CF8A;
+    /* Red accent for flip arrow */
+    --flip-red: #D4452A;
+    --flip-red-dark: #B02E18;
+
+    --font-display: 'Georgia', 'Noto Serif SC', 'Songti SC', serif;
+    --font-body: 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--cream);
+    background-image:
+      radial-gradient(ellipse at 30% 40%, rgba(74, 124, 90, 0.05) 0%, transparent 60%),
+      radial-gradient(ellipse at 70% 60%, rgba(30, 77, 46, 0.04) 0%, transparent 50%);
+    font-family: var(--font-body);
+    padding: 20px;
+    margin: 0;
+  }
+
+  /* === CARD CONTAINER === */
+  .card-wrapper {
+    width: 620px;
+    max-width: 100%;
+    perspective: 1800px;
+  }
+
+  .card {
+    position: relative;
+    width: 100%;
+    min-height: 680px;
+    transform-style: preserve-3d;
+    transition: transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+    cursor: pointer;
+  }
+
+  .card.opened {
+    transform: rotateY(-180deg);
+  }
+
+  /* === FRONT COVER === */
+  .card-front,
+  .card-back {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    min-height: 680px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 24px;
+    overflow: hidden;
+  }
+
+  .card-front {
+    /* Green gradient - first version style */
+    background: linear-gradient(160deg, #1E4D2E 0%, #2D6B3E 35%, #3A7D4E 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    box-shadow:
+      0 4px 40px rgba(30, 77, 46, 0.25),
+      0 8px 24px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Decorative pattern on front */
+  .card-front::before {
+    content: '';
+    position: absolute;
+    top: -40%; left: -20%;
+    width: 70%;
+    height: 80%;
+    background: radial-gradient(ellipse, rgba(138, 188, 154, 0.10) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .card-front::after {
+    content: '';
+    position: absolute;
+    bottom: -30%; right: -15%;
+    width: 60%;
+    height: 70%;
+    background: radial-gradient(ellipse, rgba(138, 188, 154, 0.07) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  /* Decorative dots */
+  .front-dots {
+    position: absolute;
+    top: 30px; right: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 8px);
+    gap: 10px;
+    opacity: 0.25;
+  }
+  .front-dots span {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--sage);
+  }
+
+  .front-dots-b {
+    position: absolute;
+    bottom: 30px; left: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 8px);
+    gap: 10px;
+    opacity: 0.25;
+  }
+  .front-dots-b span {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--sage);
+  }
+
+  /* Gold border line */
+  .front-border {
+    position: absolute;
+    top: 20px; left: 20px;
+    right: 20px; bottom: 20px;
+    border: 1px solid rgba(184, 151, 90, 0.2);
+    border-radius: 16px;
+    pointer-events: none;
+  }
+
+  .front-icon {
+    font-size: 52px;
+    margin-bottom: 8px;
+    position: relative;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.1));
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .front-label {
+    font-family: var(--font-display);
+    font-size: 13px;
+    letter-spacing: 8px;
+    color: var(--sage);
+    margin-bottom: 10px;
+    font-weight: 400;
+    text-transform: uppercase;
+    opacity: 0.75;
+  }
+
+  /* === 鎏金动态字体 - Gold shimmer === */
+  .front-title-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 0px;
+  }
+  .front-title-wrapper::after {
+    content: '';
+    position: absolute;
+    top: -10%; left: -5%;
+    width: 110%; height: 120%;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(232, 207, 138, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(232, 207, 138, 0.10) 0%, transparent 50%);
+    pointer-events: none;
+    animation: sparkle-shift 3s ease-in-out infinite alternate;
+  }
+  @keyframes sparkle-shift {
+    0% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0.3; }
+  }
+
+  .front-title {
+    font-family: var(--font-display);
+    font-size: 52px;
+    font-weight: 700;
+    letter-spacing: 8px;
+    margin-bottom: 4px;
+    background: linear-gradient(
+      90deg,
+      var(--gold) 0%,
+      var(--gold-light) 20%,
+      var(--gold-bright) 40%,
+      var(--warm-white) 50%,
+      var(--gold-bright) 60%,
+      var(--gold-light) 80%,
+      var(--gold) 100%
+    );
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gold-shimmer 4s ease-in-out infinite;
+    filter: drop-shadow(0 2px 4px rgba(184, 151, 90, 0.3));
+  }
+
+  @keyframes gold-shimmer {
+    0% { background-position: 0% center; }
+    50% { background-position: 100% center; }
+    100% { background-position: 0% center; }
+  }
+
+  .front-sub {
+    font-family: var(--font-display);
+    font-size: 16px;
+    color: var(--sage);
+    font-style: italic;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+  }
+
+  .front-divider {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin-bottom: 18px;
+    opacity: 0.5;
+  }
+
+  /* Brand identifier - SHUO prominent brand stamp */
+  .front-host {
+    font-family: var(--font-display);
+    font-size: 28px;
+    color: #1E4D2E;
+    letter-spacing: 8px;
+    font-weight: 900;
+    margin-top: 24px;
+    margin-bottom: 2px;
+    padding: 8px 32px 8px 36px;
+    border: 2.5px solid var(--gold);
+    border-radius: 4px;
+    background: rgba(255,255,255,0.95);
+    box-shadow:
+      0 3px 18px rgba(184, 151, 90, 0.20),
+      0 0 0 3px rgba(184, 151, 90, 0.08),
+      inset 0 0 12px rgba(184, 151, 90, 0.06);
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+  }
+  .front-host::before {
+    content: '✦';
+    font-size: 10px;
+    color: var(--gold);
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* ↩ flip icon - SVG arrow, graduated thickness, red */
+  .front-flip {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0px;
+    opacity: 0.9;
+    margin-top: 16px;
+    margin-left: auto;
+    margin-right: 50px;
+  }
+  .flip-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--flip-red);
+    filter: drop-shadow(0 0 8px rgba(212, 69, 42, 0.25));
+    animation: flip-sway 2.4s ease-in-out infinite;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .flip-arrow svg {
+    display: block;
+    width: 88px;
+    height: 64px;
+  }
+  .flip-text {
+    font-size: 11px;
+    color: var(--sage);
+    letter-spacing: 3px;
+    opacity: 0.6;
+    margin-top: -2px;
+    margin-right: 4px;
+  }
+
+  @keyframes flip-sway {
+    0%, 100% { transform: translateX(0) rotate(0deg); }
+    25% { transform: translateX(6px) rotate(10deg); }
+    75% { transform: translateX(-4px) rotate(-5deg); }
+  }
+
+  /* === BACK (INSIDE) === */
+  .card-back {
+    background: var(--warm-white);
+    transform: rotateY(180deg);
+    box-shadow:
+      0 4px 40px rgba(45, 90, 61, 0.12),
+      0 8px 24px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .back-inner {
+    padding: 44px 44px 32px;
+    flex: 1;
+    position: relative;
+  }
+
+  /* Corner accents */
+  .corner {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    border-color: var(--gold);
+    opacity: 0.3;
+  }
+  .corner-tl { top: 20px; left: 20px; border-top: 2px solid; border-left: 2px solid; }
+  .corner-tr { top: 20px; right: 20px; border-top: 2px solid; border-right: 2px solid; }
+  .corner-bl { bottom: 84px; left: 20px; border-bottom: 2px solid; border-left: 2px solid; }
+  .corner-br { bottom: 84px; right: 20px; border-bottom: 2px solid; border-right: 2px solid; }
+
+  /* Top strip */
+  .back-strip {
+    height: 5px;
+    background: linear-gradient(90deg, var(--forest), var(--leaf), var(--sage), var(--leaf), var(--forest));
+    border-radius: 0 0 3px 3px;
+  }
+
+  .back-header {
+    text-align: center;
+    margin-bottom: 4px;
+  }
+
+  .back-icon {
+    font-size: 36px;
+    margin-bottom: 4px;
+  }
+
+  .back-label {
+    font-family: var(--font-display);
+    font-size: 12px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--leaf);
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  .back-title {
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 32px;
+    color: var(--dark-charcoal);
+    font-weight: 700;
+    letter-spacing: 3px;
+    line-height: 1.2;
+    margin-bottom: 2px;
+  }
+  .back-title-en {
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 14px;
+    color: var(--warm-gray);
+    font-style: italic;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+
+  .back-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .back-divider-line {
+    height: 1px;
+    width: 50px;
+    background: linear-gradient(90deg, transparent, var(--sage));
+  }
+  .back-divider-line:last-child {
+    background: linear-gradient(90deg, var(--sage), transparent);
+  }
+  .back-divider-leaf {
+    font-size: 14px;
+    opacity: 0.6;
+  }
+
+  /* Host name inside - just SHUO */
+  .host-name {
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 11px;
+    color: var(--warm-gray);
+    margin-bottom: 14px;
+    font-style: italic;
+    letter-spacing: 3px;
+    position: relative;
+    padding-top: 8px;
+  }
+  .host-name strong {
+    color: var(--forest);
+    font-weight: 900;
+    font-style: normal;
+    font-size: 20px;
+    letter-spacing: 6px;
+    display: inline-block;
+    border: 1.5px solid rgba(184, 151, 90, 0.25);
+    padding: 2px 18px;
+    border-radius: 3px;
+    background: rgba(255,255,255,0.6);
+  }
+
+  /* Welcome message */
+  .welcome-msg {
+    text-align: center;
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--warm-gray);
+    margin-bottom: 20px;
+    padding: 0 6px;
+  }
+  .welcome-msg strong {
+    color: var(--forest);
+    font-weight: 600;
+  }
+
+  /* Details grid */
+  .details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .detail-item {
+    background: var(--pale-green);
+    border-radius: 14px;
+    padding: 16px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .detail-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(90, 143, 106, 0.15);
+  }
+  .detail-item.full {
+    grid-column: 1 / -1;
+  }
+
+  .detail-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--forest);
+    font-weight: 600;
+    margin-bottom: 6px;
+    opacity: 0.7;
+  }
+  .detail-value {
+    font-size: 16px;
+    color: var(--dark-charcoal);
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  .detail-value-sm {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  /* Address link - clickable for navigation */
+  .address-link {
+    display: inline-block;
+    color: var(--forest);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px dashed var(--leaf);
+    padding-bottom: 2px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  .address-link:hover {
+    color: var(--leaf);
+    border-bottom-color: var(--leaf-light);
+    background: rgba(74, 124, 90, 0.06);
+    border-radius: 2px;
+  }
+  .address-link::after {
+    content: ' ↗';
+    font-size: 12px;
+    opacity: 0.6;
+  }
+
+  /* Activities section */
+  .activities {
+    background: var(--cream);
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    border: 1px solid rgba(138, 188, 154, 0.2);
+  }
+  .activities-label {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--leaf);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .activities-items {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .activity-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 16px;
+    background: var(--warm-white);
+    border-radius: 20px;
+    font-size: 14px;
+    color: var(--forest);
+    font-weight: 500;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    border: 1px solid rgba(138, 188, 154, 0.15);
+  }
+  .activity-tag .emoji {
+    font-size: 16px;
+  }
+
+  /* Footer */
+  .back-footer {
+    text-align: center;
+    padding: 16px 0 0;
+    border-top: 1px solid rgba(138, 188, 154, 0.2);
+    margin-top: auto;
+  }
+  .footer-text {
+    font-size: 13px;
+    color: var(--warm-gray);
+    letter-spacing: 1px;
+  }
+  .footer-text .leaf {
+    color: var(--leaf);
+  }
+
+  /* QR code for WeChat quick share */
+  .qr-section {
+    text-align: center;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(138, 188, 154, 0.15);
+  }
+  .qr-label {
+    font-size: 11px;
+    color: var(--warm-gray);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  .qr-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    border: 1px solid rgba(184, 151, 90, 0.2);
+  }
+
+  /* ===== PREVIEW OVERLAY ===== */
+  .preview-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(20, 20, 20, 0.75);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+  }
+  .preview-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .preview-card {
+    width: 340px;
+    max-width: 85%;
+    background: linear-gradient(160deg, #1E4D2E 0%, #2D6B3E 35%, #3A7D4E 100%);
+    border-radius: 20px;
+    padding: 40px 24px 32px;
+    text-align: center;
+    box-shadow: 0 8px 60px rgba(0,0,0,0.3);
+    transform: scale(1);
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  .preview-card::before {
+    content: '';
+    position: absolute;
+    top: -30%; left: -20%;
+    width: 70%; height: 80%;
+    background: radial-gradient(ellipse, rgba(138, 188, 154, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .preview-card.hidden {
+    transform: scale(0.5);
+    transition: transform 0.4s ease;
+  }
+
+  .preview-icon {
+    font-size: 40px;
+    margin-bottom: 6px;
+    position: relative;
+  }
+  .preview-label {
+    font-family: var(--font-display);
+    font-size: 11px;
+    letter-spacing: 6px;
+    color: var(--sage);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .preview-title {
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold-bright), var(--warm-white), var(--gold-bright), var(--gold-light), var(--gold));
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gold-shimmer 4s ease-in-out infinite;
+    margin-bottom: 4px;
+  }
+  .preview-sub {
+    font-family: var(--font-display);
+    font-size: 13px;
+    color: var(--sage);
+    font-style: italic;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+  }
+  .preview-host {
+    font-family: var(--font-display);
+    font-size: 30px;
+    color: var(--warm-white);
+    letter-spacing: 10px;
+    font-weight: 900;
+    border: 3px solid rgba(232, 207, 138, 0.55);
+    display: inline-block;
+    padding: 10px 36px 10px 42px;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.12);
+    box-shadow:
+      0 0 30px rgba(232, 207, 138, 0.12),
+      inset 0 0 16px rgba(232, 207, 138, 0.06);
+    margin-bottom: 28px;
+    text-transform: uppercase;
+    position: relative;
+  }
+  .preview-host::before {
+    content: '✦';
+    font-size: 12px;
+    color: var(--gold-bright);
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    filter: drop-shadow(0 0 3px rgba(232, 207, 138, 0.15));
+  }
+  .preview-host::after {
+    content: '✦';
+    font-size: 12px;
+    color: var(--gold-bright);
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    filter: drop-shadow(0 0 3px rgba(232, 207, 138, 0.15));
+  }
+
+  .preview-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 32px;
+    background: var(--flip-red);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: var(--font-body);
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 20px rgba(212, 69, 42, 0.3);
+  }
+  .preview-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 28px rgba(212, 69, 42, 0.4);
+  }
+  .preview-btn:active {
+    transform: translateY(0);
+  }
+  .preview-btn .arrow {
+    font-size: 20px;
+  }
+
+  /* Preview responsive */
+  @media (max-width: 480px) {
+    .preview-card { width: 280px; padding: 30px 20px 24px; }
+    .preview-title { font-size: 24px; }
+    .preview-btn { font-size: 14px; padding: 10px 24px; }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 480px) {
+    body { padding: 12px; }
+    .card { min-height: 580px; }
+    .card-front, .card-back { min-height: 580px; }
+    .back-inner { padding: 28px 20px 24px; }
+    .front-title { font-size: 38px; letter-spacing: 5px; }
+    .back-title { font-size: 26px; }
+    .front-host { font-size: 9px; padding: 2px 14px; letter-spacing: 3px; }
+    .flip-arrow svg { width: 46px; height: 38px; }
+    .front-flip { margin-right: 16px; margin-top: 8px; }
+    .flip-text { font-size: 10px; }
+    .details { grid-template-columns: 1fr; }
+    .activities-items { gap: 10px; }
+    .activity-tag { padding: 5px 12px; font-size: 13px; }
+    .corner { display: none; }
+    .front-dots, .front-dots-b { display: none; }
+    .qr-img { width: 90px; height: 90px; }
+  }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .card, .card.opened { transform: none; }
+    .card-front { display: none; }
+    .card-back { transform: none; position: relative; box-shadow: none; border: 1px solid #ddd; }
+    .card { cursor: default; min-height: auto; }
+    .card-wrapper { perspective: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="card-wrapper">
+  <div class="card" id="inviteCard" onclick="toggleCard()">
+
+    <!-- ===== FRONT COVER ===== -->
+    <div class="card-front">
+      <div class="front-dots">
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+      </div>
+      <div class="front-dots-b">
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+      </div>
+      <div class="front-border"></div>
+
+      <div class="front-icon">🌿</div>
+      <div class="front-label">— 邀请函 · Invitation —</div>
+      <div class="front-title-wrapper">
+        <div class="front-title">乔迁之喜</div>
+      </div>
+      <div class="front-sub">Housewarming Party</div>
+
+      <!-- SHUO only - removed "主人" -->
+      <div class="front-host">SHUO</div>
+
+      <div class="front-divider"></div>
+
+      <!-- ↪ SVG arrow - 3D glossy, long tail, wide head -->
+      <div class="front-flip">
+        <div class="flip-arrow">
+          <svg viewBox="0 0 90 65" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <!-- Main body gradient: dark at tail → bright at head -->
+              <linearGradient id="bg" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#6E0E0E"/>
+                <stop offset="25%" stop-color="#A31A14"/>
+                <stop offset="55%" stop-color="#D43828"/>
+                <stop offset="80%" stop-color="#EA4A30"/>
+                <stop offset="100%" stop-color="#F56A42"/>
+              </linearGradient>
+              <!-- Arrowhead front facet gradient (brighter) -->
+              <linearGradient id="hg" x1="0%" y1="50%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#C72C1C"/>
+                <stop offset="40%" stop-color="#E84C32"/>
+                <stop offset="100%" stop-color="#FF8A55"/>
+              </linearGradient>
+              <!-- Top highlight sweep -->
+              <linearGradient id="hl" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="rgba(255,255,255,0)"/>
+                <stop offset="35%" stop-color="rgba(255,180,130,0.30)"/>
+                <stop offset="60%" stop-color="rgba(255,220,180,0.15)"/>
+                <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+              </linearGradient>
+              <!-- Underside shadow -->
+              <linearGradient id="sh" x1="0%" y1="100%" x2="0%" y2="0%">
+                <stop offset="0%" stop-color="rgba(0,0,0,0.30)"/>
+                <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
+              </linearGradient>
+            </defs>
+            <!-- Main ribbon body: long thin tail → wide arrowhead -->
+            <path d="M 2 56
+                     C 2 24, 10 10, 42 8
+                     L 42 2
+                     L 78 10
+                     L 42 22
+                     L 42 14
+                     C 26 14, 12 22, 10 54
+                     Z"
+                  fill="url(#bg)"/>
+            <!-- Arrowhead front face (brighter, folded facet) -->
+            <path d="M 42 2
+                     L 78 10
+                     L 42 22
+                     L 42 14
+                     L 50 12
+                     C 46 6, 42 6, 42 6
+                     Z"
+                  fill="url(#hg)"/>
+            <!-- Notch at arrowhead base (dark fold) -->
+            <path d="M 42 14
+                     L 36 18
+                     L 42 22
+                     Z"
+                  fill="#5A0A0A"/>
+            <!-- Shadow on underside curve -->
+            <path d="M 10 54
+                     C 12 24, 26 16, 42 16
+                     L 42 22
+                     C 26 20, 14 26, 12 54
+                     Z"
+                  fill="url(#sh)"/>
+            <!-- Top highlight ribbon -->
+            <path d="M 4 52
+                     C 4 26, 12 14, 40 10
+                     L 42 6
+                     L 42 8
+                     C 14 16, 8 28, 8 50
+                     Z"
+                  fill="url(#hl)"/>
+            <!-- Edge highlight along arrowhead tip -->
+            <path d="M 42 4
+                     L 76 10
+                     L 42 20
+                     L 42 18
+                     L 70 10
+                     L 42 6
+                     Z"
+                  fill="rgba(255,200,160,0.15)"/>
+          </svg>
+        </div>
+        <span class="flip-text">轻触翻转</span>
+      </div>
+    </div>
+
+    <!-- ===== BACK (INSIDE) ===== -->
+    <div class="card-back">
+      <div class="back-strip"></div>
+      <div class="back-inner">
+
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+
+        <div class="back-header">
+          <div class="back-icon">🏡</div>
+          <div class="back-label">— 邀请函 · Invitation —</div>
+        </div>
+
+        <div class="back-title">诚邀你来</div>
+        <div class="back-title-en">You're Invited!</div>
+
+        <div class="back-divider">
+          <span class="back-divider-line"></span>
+          <span class="back-divider-leaf">🌱</span>
+          <span class="back-divider-line"></span>
+        </div>
+
+        <!-- SHUO only inside - brand identifier -->
+        <div class="host-name">✦ <strong>SHUO</strong> 邀请你 ✦</div>
+
+        <div class="welcome-msg">
+          <strong>终于安顿好啦！</strong><br>
+          诚邀你来我的新家做客，<br>
+          吃顿便饭，喝杯好酒，聊聊近况 🌿<br>
+          新家的第一缕烟火气，想和你一起分享 🔥
+        </div>
+
+        <div class="details">
+          <div class="detail-item">
+            <div class="detail-label">📅 日期 · Date</div>
+            <div class="detail-value">5月16日</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">⏰ 时间 · Time</div>
+            <div class="detail-value">上午 11:00</div>
+          </div>
+          <div class="detail-item full">
+            <div class="detail-label">📍 地点 · Location</div>
+            <div class="detail-value detail-value-sm">
+              <!-- Clickable address for Amap navigation -->
+              <a class="address-link"
+                 href="https://uri.amap.com/marker?position=116.439,39.974&name=旭辉奥都小区(朝阳)"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                北京市朝阳区旭辉奥都小区<br>
+                2号楼1单元2203
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="activities">
+          <div class="activities-label">🎯 当天安排 · Activities</div>
+          <div class="activities-items">
+            <span class="activity-tag"><span class="emoji">🍲</span> 吃火锅</span>
+            <span class="activity-tag"><span class="emoji">🃏</span> 打牌</span>
+            <span class="activity-tag"><span class="emoji">🌳</span> 逛公园</span>
+            <span class="activity-tag"><span class="emoji">🍻</span> 随你嗨</span>
+          </div>
+        </div>
+
+        <div class="back-footer">
+          <div class="footer-text">
+            🌿 期待和你见面，等你来 <span class="leaf">🥂</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== PREVIEW OVERLAY ===== -->
+<div class="preview-overlay" id="previewOverlay">
+  <div class="preview-card" id="previewCard">
+    <div class="preview-icon">🌿</div>
+    <div class="preview-label">— 邀请函 · Invitation —</div>
+    <div class="preview-title">乔迁之喜</div>
+    <div class="preview-sub">Housewarming Party</div>
+    <div class="preview-host">SHUO</div>
+    <button class="preview-btn" onclick="openInvitation()">
+      <span>点击查看邀请函</span>
+      <span class="arrow">→</span>
+    </button>
+  </div>
+</div>
+
+<script>
+  let opened = false;
+  function toggleCard() {
+    const card = document.getElementById('inviteCard');
+    opened = !opened;
+    card.classList.toggle('opened', opened);
+  }
+
+  function openInvitation() {
+    const overlay = document.getElementById('previewOverlay');
+    const card = document.getElementById('previewCard');
+    card.classList.add('hidden');
+    overlay.classList.add('hidden');
+  }
+
+  // Allow clicking overlay background (not card) to close
+  document.getElementById('previewOverlay').addEventListener('click', function(e) {
+    if (e.target === this) {
+      openInvitation();
+    }
+  });
+</script>
+
+</body>
+</html>
